@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Stay focused and get more done with the private, ad-free Pomodoro timer app. This private Pomodoro timer requires no login and stores no personal data for complete privacy. No ads, no gimmicks - just a clean, simple interface to help you work smarter.">
+    <meta name=”robots” content="index, follow">
+    <meta property="og:title" content="Pomodoro Timer With Privacy & Minimalism" />
+    <meta property="og:description" content="Stay focused and get more done with the private, ad-free Pomodoro timer app. This private Pomodoro timer requires no login and stores no personal data for complete privacy. No ads, no gimmicks - just a clean, simple interface to help you work smarter." />
+    <meta property="og:image" content="https://github.com/PathFOSS/ReactJS-PathFOSS-Website/blob/main/src/images/favicon.png" />
+    <meta property="og:url" content="https://pomodoro.pathfoss.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US"/>
+    <link rel="icon" type="image/png" href="/src/images/favicon.png" />
+    <link rel="canonical" href="https://pomodoro.pathfoss.com">
+    <title>Pomodoro Timer With Privacy & Minimalism</title>
+  
+    <style>
+
+      body {
+        background-color: #1e293b;
+        margin: 0;
+      }
+
+      .loader-page {
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 2s ease-in;
+      }
+  
+      .loader {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 7rem;
+        height: 7rem;
+        border: 0.5rem solid transparent;
+        border-left: 0.5rem solid #A4C639;
+        border-right: 0.5rem solid #A4C639;
+        border-radius: 50%;
+        animation: spin 1.5s ease-in-out infinite;
+        margin: calc(50vh - 4rem) 0rem calc(50vh - 4rem) 0rem;
+      }
+  
+      .inner-loader {
+        width: 4rem;
+        height: 4rem;
+        border: 0.5rem solid transparent;
+        border-left: 0.5rem solid #A4C639;
+        border-right: 0.5rem solid #A4C639;
+        border-radius: 50%;
+        animation: spin 1.5s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+  
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes fadeIn {  
+        0% {  
+            opacity:0;  
+        }  
+
+        50% {  
+            opacity:0;  
+        }  
+
+        100% {  
+            opacity:1;  
+        }  
+    }
+    </style>
+
+  </head>
+  <body>
+    <noscript><h1>You need to enable JavaScript to run this website</h1></noscript>
+    <div id="root">
+      <div class="loader-page">
+        <div class="loader">
+          <div class="inner-loader"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

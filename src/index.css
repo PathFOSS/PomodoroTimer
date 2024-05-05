@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  
+  html {
+    @apply dark:bg-slate-800 bg-slate-200 scroll-smooth
+  }
+
+  body {
+    scrollbar-gutter: stable both-edges;
+  }
+
+  html::-webkit-scrollbar {
+    @apply w-2
+  }
+  
+  html::-webkit-scrollbar-track {
+      @apply bg-slate-700
+  }
+    
+  html::-webkit-scrollbar-thumb {
+    @apply bg-brand-900 rounded-full
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-900
+  }
+
+  h1 {
+    @apply text-2xl font-bold dark:text-slate-200 text-slate-950
+  }
+
+  h2 {
+    @apply text-6xl font-bold text-center tracking-wider
+  }
+
+  h3 {
+    @apply text-2xl font-bold text-brand-900
+  }
+
+  h4 {
+    @apply text-center font-bold text-slate-400
+  }
+
+  p {
+    @apply text-2xl dark:text-slate-200 text-slate-950 leading-10
+  }
+
+  span {
+    @apply text-brand-900 text-lg italic
+  }
+
+  button {
+    @apply rounded-xl sm:max-2xl:py-2 2xl:py-2 py-1 sm:max-2xl:px-3 2xl:px-3 px-2 font-bold text-nowrap text-ellipsis overflow-hidden
+  }
+
+  a:hover {
+    @apply cursor-pointer
+  }
+
+  svg {
+    @apply fill-slate-400 dark:fill-slate-950 text-slate-400 dark:text-slate-950 h-8 min-w-8
+  }
+
+  a svg {
+    @apply fill-slate-950 dark:fill-slate-400 text-slate-950 dark:text-slate-400 h-8 w-8
+  }
+
+  img {
+    @apply w-full
+  }
+
+  input {
+    @apply w-full dark:bg-slate-400 bg-slate-100 border-2 border-slate-400 rounded-xl text-center font-bold text-slate-400 dark:text-slate-950
+  }
+
+  input:focus, input.form-control:focus {
+    @apply shadow-none outline-0 outline-none
+  }
+
+  .brand-btn svg{
+    @apply fill-brand-900 text-brand-900
+  }
+
+  .selected-btn {
+    @apply bg-brand-900 text-slate-950 transition duration-300 
+  }
+
+  .inactive-btn {
+    @apply text-brand-900 transition duration-300
+  }
+
+  .math-btn {
+    @apply dark:bg-slate-900 bg-slate-300 rounded-xl flex justify-center
+  }
+
+  .settings-input-container {
+    @apply flex flex-col gap-2 text-center text-nowrap text-ellipsis overflow-hidden
+  }
+
+  .flipped {
+    @apply rotate-180 transition duration-300
+  }
+
+  .explanatory-section {
+    @apply sm:max-2xl:py-8 2xl:py-8 py-2 2xl:gap-32 flex lg:max-2xl:flex-row 2xl:flex-row flex-col gap-12 min-h-screen items-center justify-center
+  }
+
+  .explanatory-item {
+    @apply w-full sm:w-full md:w-full lg:max-2xl:w-6/12 2xl:w-6/12
+  }
+
+  .steps-item {
+    @apply flex gap-4 items-start sm:max-2xl:items-center 2xl:items-center
+  }
+
+  #scroll-btn {
+    @apply brand-btn dark:bg-slate-700 bg-slate-100 p-4 rounded-full transition duration-200
+  }
+
+  #app {
+    @apply bg-slate-200 dark:bg-slate-800 2xl:px-48 xl:px-32 lg:px-16 md:px-12 sm:px-4 px-2 w-full
+  }
+
+  #timer {
+    @apply grid grid-cols-3 place-content-center sm:max-2xl:p-12 2xl:p-12 p-4 dark:bg-slate-950 bg-slate-200 rounded-xl shadow-2xl text-brand-900 sm:max-2xl:gap-x-12 2xl:gap-x-12 gap-x-2 gap-y-12
+  }
+
+  #settings {
+    @apply fixed z-10 inset-0 h-screen w-screen grid justify-center content-center dark:bg-slate-800/90 bg-slate-200/90
+  }
+}
