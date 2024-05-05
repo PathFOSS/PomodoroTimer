@@ -2,6 +2,8 @@
 
 This project is a minimalist Pomodoro Timer without any trackers, ads, and excessive features.
 
+NB! Not all functionalities have been added yet. This project is in an experimental stage!
+
 ## Technologies used
 
 1. React.js
