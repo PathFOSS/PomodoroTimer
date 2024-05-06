@@ -48,7 +48,7 @@ const Pomodoro = () => {
             document.title = "Pomodoro Timer With Privacy & Minimalism";
     }, [selected]);
 
-    return <div className="grid justify-center items-center h-full">
+    return <div className="flex justify-center items-center h-full">
         <div id="timer">
             <button className={selected === 0 ? "selected-btn" : "inactive-btn"} onClick={() => setSelected(0)}>Focus</button>
             <button className={selected === 1 ? "selected-btn" : "inactive-btn"} onClick={() => setSelected(1)}>Short Break</button>
