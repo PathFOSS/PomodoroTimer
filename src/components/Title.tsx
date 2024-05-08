@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { activateDarkMode } from "../redux/slices/DarkModeSlice";
 import Settings from "./Settings";
 import { setSettings } from "../redux/slices/SettingsSlice";
+import { RootState } from "../redux/Store";
 
 const Title = () => {
 
-    const [darkMode, setDarkMode] = useState(useSelector((state) => state.darkMode.value));
-    const isSettings = useSelector((state) => state.settings.value);
+    const [darkMode, setDarkMode] = useState<boolean>(useSelector((state: RootState) => state.darkMode.value));
+    const isSettings: boolean = useSelector((state: RootState) => state.settings.value);
     const dispatch = useDispatch();
 
     const handleThemeChange = () => {

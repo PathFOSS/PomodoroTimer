@@ -2,18 +2,19 @@ import { CrossIcon, MinusIcon, PlusIcon } from "../icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setTimes } from "../redux/slices/TimeSlice";
 import { setSettings } from "../redux/slices/SettingsSlice";
+import { RootState } from "../redux/Store";
 
 const Settings = () => {
 
-    const times = useSelector((state) => state.times.value);
+    const times: number[] = useSelector((state: RootState) => state.times.value);
     const dispatch = useDispatch();
 
-    const handleClick = (index, num) => {
+    const handleClick = (index: number, num: number) => {
         
-        let outputArray = [];
+        let outputArray: number[] = [];
         
         for (var i = 0; i <= 2; i++) {
-            let newVal = times[i];
+            let newVal: number = times[i];
 
             if (index === i && newVal + num > 0) {
                 outputArray.push(newVal + num);

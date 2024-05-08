@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import ProductivityImg from "../images/productivity.svg";
 
-const WhatPage = forwardRef((props, ref) => {
+const WhatPage = forwardRef<HTMLDivElement>((_props, ref) => {
     return <section id="what-page" className="explanatory-section" ref={ref}>
         <div className="flex flex-col justify-center gap-8 explanatory-item">
             <h3>What is the Pomodoro Technique?</h3>

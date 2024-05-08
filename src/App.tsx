@@ -4,22 +4,24 @@ import WhatPage from "./components/WhatPage";
 import HowPage from "./components/HowPage";
 import { useEffect, useRef, useState } from "react";
 import MainPage from "./components/MainPage";
-import useIsInViewport from "./utils/useIsInViewPort"
+import useIsInViewport from "./utils/useIsInViewPort";
+import { RootState } from "./redux/Store";
+
 
 const  App = () => {
 
-  const mainPage = useRef(null);
-  const whatPage = useRef(null);
-  const howPage = useRef(null);
+  const mainPage = useRef<HTMLDivElement>(null);
+  const whatPage = useRef<HTMLDivElement>(null);
+  const howPage = useRef<HTMLDivElement>(null);
 
   const isMainPageVisibile = useIsInViewport(mainPage);
   const isWhatPageVisibile = useIsInViewport(whatPage);
   const isHowPageVisibile = useIsInViewport(howPage);
 
-  const darkMode = useSelector((state) => state.darkMode.value);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [flipped, setFlipped] = useState(false);
-  const pageList = ["app", "what-page", "how-page"];
+  const darkMode: boolean = useSelector((state: RootState) => state.darkMode.value);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [flipped, setFlipped] = useState<boolean>(false);
+  const pageList: [string, string, string] = ["app", "what-page", "how-page"];
 
   if (darkMode) {
     window.document.documentElement.classList.add("dark");
@@ -46,11 +48,11 @@ const  App = () => {
   }, [isMainPageVisibile, isWhatPageVisibile, isHowPageVisibile])
 
   const handleClick = () => {
-    let index = 0;
+    let index: number = 0;
     if (!flipped) {
       index = currentIndex + 1
     }
-    document.getElementById(pageList[index]).scrollIntoView();
+    document.getElementById(pageList[index])!.scrollIntoView();
   };
 
   return <div id="app" className="relative transition">

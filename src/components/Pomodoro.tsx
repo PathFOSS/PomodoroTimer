@@ -2,28 +2,26 @@ import { useEffect, useState } from "react";
 import formatTime from "../utils/formatTime";
 import { PauseIcon, StartIcon } from "../icons";
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/Store";
 
 const Pomodoro = () => {
 
-    const [timeLeft, setTimeLeft] = useState(25 * 60);
-    const [selected, setSelected] = useState(0); 
-    const [seconds, setSeconds] = useState(0); 
-    const [rounds, setRounds] = useState(0); 
+    const [timeLeft, setTimeLeft] = useState<number>(25 * 60);
+    const [selected, setSelected] = useState<number>(0); 
+    const [seconds, setSeconds] = useState<number>(0); 
+    const [rounds, setRounds] = useState<number>(0); 
 
-    const [isStarted, setIsStarted] = useState(false); 
-    const minuteMap = {
-        0: useSelector((state) => state.times.value[0]),
-        1: useSelector((state) => state.times.value[1]),
-        2: useSelector((state) => state.times.value[2]),
-    };
-    const typeMap = {
-        0: "Focus",
-        1: "Short Break",
-        2: "Long Break",
+    const [isStarted, setIsStarted] = useState<boolean>(false); 
+    const timesArray: [number, number, number] = useSelector((state: RootState) => state.times.value)
+
+    enum typeMap{
+        "Focus", 
+        "Short Break",
+        "Long Break"
     };
 
     useEffect(() => {
-        let interval = null;
+        let interval: number = 0;
         if (isStarted) {
             interval = setInterval(() => {
                 setSeconds(seconds => seconds + 1);
@@ -42,7 +40,7 @@ const Pomodoro = () => {
     }, [isStarted, seconds]);
 
     useEffect(() => {
-            setTimeLeft(minuteMap[selected] * 60);
+            setTimeLeft(timesArray[selected] * 60);
             setSeconds(0);
             setIsStarted(false);
             document.title = "Pomodoro Timer With Privacy & Minimalism";

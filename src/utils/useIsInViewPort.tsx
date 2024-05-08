@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { RefObject, useEffect, useMemo, useState } from "react";
 
-const useIsInViewport = (ref) => {
-    const [isIntersecting, setIsIntersecting] = useState(false);
+const useIsInViewport = (ref: RefObject<HTMLDivElement>) : boolean => {
+    const [isIntersecting, setIsIntersecting] = useState<boolean>(false);
   
     const observer = useMemo(
       () =>
@@ -12,7 +12,7 @@ const useIsInViewport = (ref) => {
     );
   
     useEffect(() => {
-      observer.observe(ref.current);
+      observer.observe(ref.current!);
   
       return () => {
         observer.disconnect();

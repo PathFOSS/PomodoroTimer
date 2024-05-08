@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { CheckIcon } from "../icons";
 import ListImg from "../images/list.svg";
 
-const HowPage = forwardRef((props, ref) => {
+const HowPage = forwardRef<HTMLDivElement>((_props, ref) => {
     return <section id="how-page" className="explanatory-section sm:flex-col-reverse md:flex-col-reverse flex-col-reverse lg:max-2xl:flex-row 2xl:flex-row" ref={ref}>
 
         <img src={ListImg} className="explanatory-item"/>

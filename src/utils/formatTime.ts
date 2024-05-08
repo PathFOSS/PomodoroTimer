@@ -1,6 +1,6 @@
-const formatTime = (s) => {
+const formatTime = (s: number) : string => {
 
-    const addZeroes = (num) => {
+    const addZeroes = (num: number) => {
         if (num < 10) {
             return "0" + num;
         }

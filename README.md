@@ -1,24 +1,30 @@
-# Pomodoro Timer
+# React + TypeScript + Vite
 
-This project is a minimalist Pomodoro Timer without any trackers, ads, and excessive features.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-NB! Not all functionalities have been added yet. This project is in an experimental stage!
+Currently, two official plugins are available:
 
-## Technologies used
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-1. React.js
-2. Redux
-3. JavaScript
-4. HTML
-5. Tailwind CSS
+## Expanding the ESLint configuration
 
-## Purpose
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-To make the first step towards making a minimalist and tracker-free productivity platform for all.
+- Configure the top-level `parserOptions` property like this:
 
-The secondary aim of this project was to solidify the base UI/UX design with Tailwind CSS to be used amongst other similar projects.
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-## Information
-
-- License: GPLv3
-- Author: PathFOSS
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
