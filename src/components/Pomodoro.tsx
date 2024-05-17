@@ -3,6 +3,8 @@ import formatTime from "../utils/formatTime";
 import { PauseIcon, StartIcon } from "../icons";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/Store";
+import FocusEndSound from "../audio/focus_end.mp3";
+import BreakEndSound from "../audio/break_end.mp3";
 
 const Pomodoro = () => {
 
@@ -14,11 +16,7 @@ const Pomodoro = () => {
     const [isStarted, setIsStarted] = useState<boolean>(false); 
     const timesArray: [number, number, number] = useSelector((state: RootState) => state.times.value)
 
-    enum typeMap{
-        "Focus", 
-        "Short Break",
-        "Long Break"
-    };
+    enum typeMap {"Focus", "Short Break", "Long Break"};
 
     useEffect(() => {
         let interval: number = 0;
@@ -28,9 +26,20 @@ const Pomodoro = () => {
                 document.title = formatTime(timeLeft - seconds - 1) + " | " + typeMap[selected] + " | Pomodoro Timer With Privacy & Minimalism";
                 if (seconds + 1 >= timeLeft) {
                     setIsStarted(false);
+                    let newSelected: number = 1;
+
                     if (selected === 0) {
                         setRounds(rounds + 1);
+                        if ((rounds + 1) % 4 === 0) {
+                            newSelected++;
+                        }
+                        new Audio(FocusEndSound).play();
+                    } else {
+                        newSelected--;
+                        new Audio(BreakEndSound).play();
                     }
+                    setSelected(newSelected);
+                    setIsStarted(true);
                 }
             }, 1000);
         } else if (!isStarted && seconds !== 0) {
@@ -42,9 +51,8 @@ const Pomodoro = () => {
     useEffect(() => {
             setTimeLeft(timesArray[selected] * 60);
             setSeconds(0);
-            setIsStarted(false);
             document.title = "Pomodoro Timer With Privacy & Minimalism";
-    }, [selected]);
+    }, [selected, timesArray]);
 
     return <div className="flex justify-center items-center h-full">
         <div id="timer">
